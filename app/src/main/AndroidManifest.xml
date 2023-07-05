@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ssa.nitian.srec.srec_plugin_example">
+    <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"/>
    <application
         android:label="srec_plugin_example"
         android:icon="@mipmap/ic_launcher">
@@ -37,5 +38,16 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <service
+           android:name=".TileService"
+           android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|keyboard|density|uiMode|fontScale|layoutDirection|locale|smallestScreenSize|touchscreen|navigation|mcc|colorMode"
+           android:exported="true"
+           android:icon="@drawable/ic_baseline_4k_24"
+           android:label="4K"
+           android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+           <intent-filter>
+               <action android:name="android.service.quicksettings.action.QS_TILE" />
+           </intent-filter>
+       </service>
     </application>
 </manifest>
